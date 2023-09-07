@@ -1,0 +1,24 @@
+syntax = "proto3";
+
+option go_package = "try-go-grpc/menu";
+
+package menu;
+
+import "google/protobuf/empty.proto";
+
+// Show all of menu in restaurant.
+service Menu {
+  // List a beers
+  rpc ListBeers (google.protobuf.Empty) returns (ListBeersResponse) {}
+}
+
+// Message beer
+message Beer {
+  int32 id = 1;
+	string name = 2;
+}
+
+// The response message containing the beers
+message ListBeersResponse {
+  repeated Beer beers = 1;
+}
